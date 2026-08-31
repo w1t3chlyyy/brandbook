@@ -1,0 +1,22 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  background: #000;
+  overflow-x: hidden;
+}
+
+.block {
+  width: 100%;
+  height: 100vh;   /* запасной вариант для старых браузеров */
+  height: 100svh;  /* реальная видимая высота экрана на мобильных */
+  display: block;
+  overflow: hidden;
+}
+
+.block img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
