@@ -72,7 +72,6 @@
       margin: 0;
     }
 
-    /* ——— мобильные стили с коротким текстом ——— */
     @media (max-width: 600px) {
       .cta-overlay {
         left: 5%;
@@ -87,31 +86,10 @@
         border-radius: 999px;
       }
 
-      /* текст под кнопкой — более короткий для моб. устройств */
+      /* 🔽 Текст под кнопкой стал МЕНЬШЕ по размеру */
       .cta-text {
-        font-size: clamp(8px, 2vw, 10px);
-        max-width: 95%;
-      }
-
-      /* меняем содержимое текста через псевдоэлемент,
-         чтобы не дублировать в HTML и сохранить семантику */
-      .cta-text .desktop-only {
-        display: none;
-      }
-
-      .cta-text .mobile-short {
-        display: inline;
-      }
-    }
-
-    /* по умолчанию показываем полный текст, мобильный — скрыт */
-    .cta-text .mobile-short {
-      display: none;
-    }
-
-    @media (min-width: 601px) {
-      .cta-text .desktop-only {
-        display: inline;
+        font-size: clamp(7px, 1.6vw, 9px);
+        /* было clamp(8px, 2vw, 10px) — уменьшил */
       }
     }
   </style>
@@ -127,11 +105,7 @@
     <img src="photos/7.png" alt="">
     <div class="cta-overlay">
       <a class="cta-button" href="https://t.me/HustlifyHelp?text=%D0%93%D0%BE%D1%82%D0%BE%D0%B2" target="_blank" rel="noopener">Готов</a>
-      <!-- текст разделён на две части: полная версия и короткая для мобильных -->
-      <p class="cta-text">
-        <span class="desktop-only">Напиши "Готов" — и мы запустим твой бизнес через неделю. Проверим?</span>
-        <span class="mobile-short">Напиши "Готов" — запустим через неделю</span>
-      </p>
+      <p class="cta-text">Напиши "Готов" — и мы запустим твой бизнес через неделю. Проверим?</p>
     </div>
   </div>
 </body>
