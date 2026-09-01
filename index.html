@@ -24,12 +24,10 @@
     height: auto;
     display: block;
   }
-
   /* последний блок — с кнопкой поверх фото */
   .block.cta {
     position: relative;
   }
-
   .cta-overlay {
     position: absolute;
     left: 5%;
@@ -40,7 +38,6 @@
     align-items: flex-start;
     gap: 1.6vw;
   }
-
   .cta-button {
     display: inline-block;
     background: #fff;
@@ -55,7 +52,6 @@
     font-size: clamp(17px, 2.3vw, 30px);
     white-space: nowrap;
   }
-
   .cta-text {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
@@ -64,16 +60,15 @@
     line-height: 1.45;
     margin: 0;
   }
-
   @media (max-width: 600px) {
     .cta-overlay {
       left: 5%;
-      top: 76%;
-      width: 62%;
-      gap: 3vw;
+      top: 66%;
+      width: 55%;
+      gap: 2vw;
     }
-    .cta-button { font-size: clamp(15px, 4.2vw, 20px); padding: 3.6vw 8vw; border-radius: 999px; }
-    .cta-text { font-size: clamp(10px, 2.8vw, 13px); }
+    .cta-button { font-size: clamp(10px, 2.6vw, 13px); padding: 2vw 5vw; border-radius: 999px; }
+    .cta-text { font-size: clamp(8px, 2vw, 10px); }
   }
 </style>
 </head>
@@ -84,7 +79,6 @@
 <div class="block"><img src="photos/4.png" alt=""></div>
 <div class="block"><img src="photos/5.png" alt=""></div>
 <div class="block"><img src="photos/6.png" alt=""></div>
-
 <div class="block cta">
   <img src="photos/7.png" alt="">
   <div class="cta-overlay">
