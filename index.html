@@ -1,90 +1,138 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gallery</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html, body {
-    width: 100%;
-    background: #000;
-    overflow-x: hidden;
-  }
-  .block {
-    width: 100%;
-    display: block;
-    line-height: 0;
-  }
-  .block img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  /* последний блок — с кнопкой поверх фото */
-  .block.cta {
-    position: relative;
-  }
-  .cta-overlay {
-    position: absolute;
-    left: 5%;
-    top: 70%;
-    width: 44%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.6vw;
-  }
-  .cta-button {
-    display: inline-block;
-    background: #fff;
-    color: #000;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
-    padding: clamp(16px, 1.9vw, 28px) clamp(34px, 4.6vw, 62px);
-    border-radius: clamp(30px, 3vw, 44px);
-    font-size: clamp(17px, 2.3vw, 30px);
-    white-space: nowrap;
-  }
-  .cta-text {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-    color: #eaeaea;
-    font-size: clamp(9px, 1.05vw, 15px);
-    line-height: 1.45;
-    margin: 0;
-  }
-  @media (max-width: 600px) {
-    .cta-overlay {
-      left: 5%;
-      top: 68%;
-      width: 40%;
-      gap: 2vw;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    .cta-button { font-size: clamp(10px, 2.6vw, 13px); padding: 2vw 5vw; border-radius: 999px; }
-    .cta-text { font-size: clamp(8px, 2vw, 10px); }
-  }
-</style>
+
+    html,
+    body {
+      width: 100%;
+      background: #000;
+      overflow-x: hidden;
+    }
+
+    .block {
+      width: 100%;
+      display: block;
+      line-height: 0;
+    }
+
+    .block img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .block.cta {
+      position: relative;
+    }
+
+    .cta-overlay {
+      position: absolute;
+      left: 5%;
+      top: 70%;
+      width: 44%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.6vw;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: #fff;
+      color: #000;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      padding: clamp(16px, 1.9vw, 28px) clamp(34px, 4.6vw, 62px);
+      border-radius: clamp(30px, 3vw, 44px);
+      font-size: clamp(17px, 2.3vw, 30px);
+      white-space: nowrap;
+    }
+
+    .cta-text {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      color: #eaeaea;
+      font-size: clamp(9px, 1.05vw, 15px);
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    /* ——— мобильные стили с коротким текстом ——— */
+    @media (max-width: 600px) {
+      .cta-overlay {
+        left: 5%;
+        top: 68%;
+        width: 40%;
+        gap: 2vw;
+      }
+
+      .cta-button {
+        font-size: clamp(10px, 2.6vw, 13px);
+        padding: 2vw 5vw;
+        border-radius: 999px;
+      }
+
+      /* текст под кнопкой — более короткий для моб. устройств */
+      .cta-text {
+        font-size: clamp(8px, 2vw, 10px);
+        max-width: 95%;
+      }
+
+      /* меняем содержимое текста через псевдоэлемент,
+         чтобы не дублировать в HTML и сохранить семантику */
+      .cta-text .desktop-only {
+        display: none;
+      }
+
+      .cta-text .mobile-short {
+        display: inline;
+      }
+    }
+
+    /* по умолчанию показываем полный текст, мобильный — скрыт */
+    .cta-text .mobile-short {
+      display: none;
+    }
+
+    @media (min-width: 601px) {
+      .cta-text .desktop-only {
+        display: inline;
+      }
+    }
+  </style>
 </head>
 <body>
-<div class="block"><img src="photos/1.png" alt=""></div>
-<div class="block"><img src="photos/2.png" alt=""></div>
-<div class="block"><img src="photos/3.png" alt=""></div>
-<div class="block"><img src="photos/4.png" alt=""></div>
-<div class="block"><img src="photos/5.png" alt=""></div>
-<div class="block"><img src="photos/6.png" alt=""></div>
-<div class="block cta">
-  <img src="photos/7.png" alt="">
-  <div class="cta-overlay">
-    <a class="cta-button" href="https://t.me/HustlifyHelp?text=%D0%93%D0%BE%D1%82%D0%BE%D0%B2" target="_blank" rel="noopener">Готов</a>
-    <p class="cta-text">Напиши "Готов" — и мы запустим твой бизнес через неделю. Проверим?</p>
+  <div class="block"><img src="photos/1.png" alt=""></div>
+  <div class="block"><img src="photos/2.png" alt=""></div>
+  <div class="block"><img src="photos/3.png" alt=""></div>
+  <div class="block"><img src="photos/4.png" alt=""></div>
+  <div class="block"><img src="photos/5.png" alt=""></div>
+  <div class="block"><img src="photos/6.png" alt=""></div>
+  <div class="block cta">
+    <img src="photos/7.png" alt="">
+    <div class="cta-overlay">
+      <a class="cta-button" href="https://t.me/HustlifyHelp?text=%D0%93%D0%BE%D1%82%D0%BE%D0%B2" target="_blank" rel="noopener">Готов</a>
+      <!-- текст разделён на две части: полная версия и короткая для мобильных -->
+      <p class="cta-text">
+        <span class="desktop-only">Напиши "Готов" — и мы запустим твой бизнес через неделю. Проверим?</span>
+        <span class="mobile-short">Напиши "Готов" — запустим через неделю</span>
+      </p>
+    </div>
   </div>
-</div>
 </body>
 </html>
