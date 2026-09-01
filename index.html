@@ -4,37 +4,93 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gallery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html, body {
     width: 100%;
     background: #000;
     overflow-x: hidden;
   }
-
   .block {
     width: 100%;
     display: block;
     line-height: 0;
   }
-
   .block img {
     width: 100%;
     height: auto;
     display: block;
   }
+
+  /* последний блок — с кнопкой поверх фото */
+  .block.cta {
+    position: relative;
+  }
+
+  .cta-overlay {
+    position: absolute;
+    left: 4%;
+    top: 62%;
+    width: 44%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.4vw;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: #fff;
+    color: #000;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    padding: clamp(10px, 1.3vw, 20px) clamp(24px, 3.4vw, 46px);
+    border-radius: clamp(24px, 2.5vw, 36px);
+    font-size: clamp(13px, 1.7vw, 22px);
+    white-space: nowrap;
+  }
+
+  .cta-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: #eaeaea;
+    font-size: clamp(9px, 1.05vw, 15px);
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  @media (max-width: 600px) {
+    .cta-overlay {
+      left: 5%;
+      top: 60%;
+      width: 60%;
+      gap: 2.5vw;
+    }
+    .cta-button { font-size: clamp(11px, 3.2vw, 15px); padding: 2.4vw 6vw; border-radius: 999px; }
+    .cta-text { font-size: clamp(9px, 2.4vw, 12px); }
+  }
 </style>
 </head>
 <body>
-
 <div class="block"><img src="photos/1.png" alt=""></div>
 <div class="block"><img src="photos/2.png" alt=""></div>
 <div class="block"><img src="photos/3.png" alt=""></div>
 <div class="block"><img src="photos/4.png" alt=""></div>
 <div class="block"><img src="photos/5.png" alt=""></div>
 <div class="block"><img src="photos/6.png" alt=""></div>
-<div class="block"><img src="photos/7.png" alt=""></div> 
 
+<div class="block cta">
+  <img src="photos/7.png" alt="">
+  <div class="cta-overlay">
+    <a class="cta-button" href="https://t.me/HustlifyHelp?text=%D0%93%D0%BE%D1%82%D0%BE%D0%B2" target="_blank" rel="noopener">Готов</a>
+    <p class="cta-text">Напиши "Готов" — и мы запустим твой бизнес через неделю. Проверим?</p>
+  </div>
+</div>
 </body>
 </html>
